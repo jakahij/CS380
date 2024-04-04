@@ -34,12 +34,12 @@ class BinarySearchTree{
       
       return root;
    }
-   
-   
-   
-   /*
-   pre-order traversal
-   */
+
+
+   /**
+    * Prints a given tree in Pre Order
+    * @param root The given tree
+    */
    public void preOrderTraversal(Node root){
       //base case
       if(root == null){
@@ -52,11 +52,11 @@ class BinarySearchTree{
       preOrderTraversal(root.right);
    }
 
-   
-   
-   /*
-   in-order traversal
-   */
+
+   /**
+    * Prints a given tree In Order
+    * @param root The given tree
+    */
    public void inOrderTraversal(Node root){
       //base case
       if(root == null){
@@ -69,12 +69,12 @@ class BinarySearchTree{
       //go right recursively
       inOrderTraversal(root.right);
    }
-   
-   
-   
-   /*
-   post-order traversal
-   */
+
+
+   /**
+    * Prints a given tree in Post Order
+    * @param root The given tree
+    */
    public void postOrderTraversal(Node root){
       //base case
       if(root == null){
@@ -87,31 +87,33 @@ class BinarySearchTree{
       //process the root
       System.out.print(root.value+" ");
    }
-   
-   
-   
-   /*
-   a method to find the node in the tree
-   with a specific value
-   */
-   public boolean find(Node root, int key){
-	if (root == null || root.value == key)
+
+
+   /**
+    * A method to find the node in the tree with a specific value
+    * @param root The given tree
+    * @param key The key to find in the tree
+    * @return Returns true if the key is found, returns false if key is not found
+    */
+   public boolean find(Node root, int key) {
+      if (root == null) {
+         return false;
+      }
+      if (root.value == key) {
          return true;
-
-      // Key is greater than root's key
-      if (root.value < key)
+      } else if (root.value < key) {
          return find(root.right, key);
-
-      // Key is smaller than root's key
-         return find(root.left, key);            
+      } else {
+         return find(root.left, key);
+      }
    }
-   
-   
-   
-   /*
-   a method to find the node in the tree
-   with a smallest key
-   */
+
+
+   /**
+    * A method to find the node in the tree with a smallest key
+    * @param The given tree
+    * @return Returns the smallest node value
+    */
    public int getMin(Node root){
       if (root == null) {
          return root.value;
@@ -122,15 +124,16 @@ class BinarySearchTree{
       }
       return current.value;
    }
-  
-  
-  
-   /*
-   a method to find the node in the tree
-   with a largest key
-   */
+
+
+
+   /**
+    * A method to find the node in the tree with a largest key
+    * @param The given tree
+    * @return Returns the largest node value
+    */
    public int getMax(Node root){
-     if (root == null) {
+	  if (root == null) {
       return root.value;
      }
      Node current = root;
