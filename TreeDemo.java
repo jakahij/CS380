@@ -95,8 +95,15 @@ class BinarySearchTree{
    with a specific value
    */
    public boolean find(Node root, int key){
-	  //implement me
-      return false;           
+	if (root == null || root.value == key)
+         return true;
+
+      // Key is greater than root's key
+      if (root.value < key)
+         return find(root.right, key);
+
+      // Key is smaller than root's key
+         return find(root.left, key);            
    }
    
    
