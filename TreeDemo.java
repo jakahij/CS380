@@ -130,7 +130,14 @@ class BinarySearchTree{
    with a largest key
    */
    public int getMax(Node root){
-	  //implement me
+     if (root == null) {
+      return root.value;
+     }
+     Node current = root;
+     while (current.right != null) {
+      current = current.right;
+     }
+     return current.value;
    }
    
    
